@@ -105,7 +105,7 @@ module.exports = function(htmlText, options) {
     var parser = new wndw.DOMParser();
     var parsedHtml = parser.parseFromString(htmlText, 'text/html');
 
-    var docDef = parseElement(parsedHtml.body, []);
+    var docDef = parseElement(parsedHtml.body || parsedHtml.firstChild, []);
     // remove first level
     return  docDef.stack || docDef.text;
   }
